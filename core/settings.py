@@ -29,7 +29,11 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "https://amulyajain.vercel.app/",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -57,7 +61,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://amulyajain.vercel.app",
+    "http://localhost:5173",
+]
 
 ROOT_URLCONF = "core.urls"
 
