@@ -30,8 +30,8 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://portfolio-backend-403y.onrender.com/"
-    "https://amulyajain.vercel.app/",
+    "portfolio-backend-403y.onrender.com",
+    "amulyajain.vercel.app",
     "localhost",
     "127.0.0.1",
 ]
