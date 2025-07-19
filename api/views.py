@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Project, Message, BlogPost, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
-from .serializers import ProjectSerializer, MessageSerializer, BlogPostSerializer, SkillSerializer, CertificationSerializer, DailyLogSerializer, EducationSerializer, ExperienceSerializer, MainCategorySerializer, SubCategorySerializer
+from .models import Project, Message, Blog, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
+from .serializers import ProjectSerializer, MessageSerializer, BlogSerializer, SkillSerializer, CertificationSerializer, DailyLogSerializer, EducationSerializer, ExperienceSerializer, MainCategorySerializer, SubCategorySerializer
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.
@@ -24,13 +24,13 @@ class MessageCreateView(generics.CreateAPIView):
             fail_silently=False,
         )
 
-class BlogPostListView(generics.ListAPIView):
-    queryset = BlogPost.objects.filter(is_published=True)
-    serializer_class = BlogPostSerializer
+class BlogListView(generics.ListAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
 
-class BlogPostDetailView(generics.RetrieveAPIView):
-    queryset = BlogPost.objects.filter(is_published=True)
-    serializer_class = BlogPostSerializer
+class BlogDetailView(generics.RetrieveAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
     lookup_field = 'slug'
 
 class SkillListView(generics.ListAPIView):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Message, BlogPost, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
+from .models import Project, Message, Blog, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
 
 @admin.register(MainCategory)
 class MainCategoryAdmin(admin.ModelAdmin):
@@ -25,12 +25,11 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ('tech_stack', 'featured')
     ordering = ('title',)
 
-@admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'published_at', 'is_published', 'link')
-    search_fields = ('title', 'content')
-    list_filter = ('is_published',)
-    ordering = ('-published_at',)
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'date', 'slug', 'content_path')
+    search_fields = ('title', 'author', 'summary')
+    ordering = ('-date',)
 
 @admin.register(Certification)
 class CertificationAdmin(admin.ModelAdmin):

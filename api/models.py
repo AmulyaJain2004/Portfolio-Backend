@@ -19,14 +19,13 @@ class Message(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-class BlogPost(models.Model):
+class Blog(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
-    content = models.TextField()
-    cover_image = models.URLField(null=True, blank=True)
-    published_at = models.DateTimeField()
-    is_published = models.BooleanField(default=False)
-    link = models.URLField(null=True, blank=True, help_text='Optional external link (e.g. LinkedIn article)')
+    slug = models.SlugField(unique=True, null=False)
+    author = models.CharField(max_length=100)
+    date = models.DateField()
+    summary = models.TextField(null=True, blank=True)
+    content_path = models.CharField(max_length=255, null=True, blank=True)  # e.g., 'blogs/my-first-post.md'
 
     def __str__(self):
         return self.title

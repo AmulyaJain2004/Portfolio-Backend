@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Message, BlogPost, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
+from .models import Project, Message, Blog, Skill, Certification, DailyLog, Education, Experience, MainCategory, SubCategory
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,9 +11,9 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = '__all__'
 
-class BlogPostSerializer(serializers.ModelSerializer):
+class BlogSerializer(serializers.ModelSerializer):
     class Meta:
-        model = BlogPost
+        model = Blog
         fields = '__all__'
 
 class MainCategorySerializer(serializers.ModelSerializer):
